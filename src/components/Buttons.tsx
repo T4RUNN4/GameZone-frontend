@@ -27,7 +27,7 @@ export default function Button(props: ButtonProps) {
     return (
       <Link
         href={props.href}
-        className={`${baseClasses} ${typeClasses}`}u
+        className={`${baseClasses} ${typeClasses}`}
       >
         {props.text}
       </Link>
