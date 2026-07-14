@@ -39,8 +39,8 @@ export default function SlotBooking() {
           </div>
 
           <div className="flex items-center justify-center gap-4">
-            <Button text="Book Slot" type="primary" />
-            <Button text="Clear" type="secondary" />
+            <Button text="Book Slot" type="primary" task="button" />
+            <Button text="Clear" type="secondary" task="button" />
           </div>
         </form>
       </div>

@@ -47,8 +47,8 @@ export default function AddGames() {
           </div>
 
           <div className="flex items-center justify-center gap-4">
-            <Button text="Add Game" type="primary" />
-            <Button text="Clear" type="secondary" />
+            <Button text="Add Game" type="primary" task="button" />
+            <Button text="Clear" type="secondary" task="button" />
           </div>
         </form>
       </div>

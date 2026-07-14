@@ -1,0 +1,35 @@
+import Button from "@/components/Buttons";
+import SectionContainer from "@/components/SectionContainer";
+
+export default function Login() {
+  return (
+    <SectionContainer title="Login" subtitle="Login to book your slots">
+      <div className="flex mx-auto max-w-5xl items-center justify-center">
+        <form className="w-full rounded-box border border-gray-600 p-8">
+          <div className="flex flex-col gap-2 mb-6">
+            <label className="text-xl font-bold">Email Address</label>
+            <input
+              type="email"
+              className="input text-black w-full"
+              placeholder="john.doe@example.com"
+            />
+          </div>
+
+          <div className="flex flex-col gap-2 mb-6">
+            <label className="text-xl font-bold">Password</label>
+            <input
+              type="password"
+              className="input text-black w-full"
+              placeholder="Enter your password"
+            />
+          </div>
+
+          <div className="flex items-center justify-center gap-4">
+            <Button text="Login" type="primary" task="button" />
+            <Button text="Clear" type="secondary" task="button" />
+          </div>
+        </form>
+      </div>
+    </SectionContainer>
+  );
+}

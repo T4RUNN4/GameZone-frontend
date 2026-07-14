@@ -83,8 +83,8 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="navbar-end flex gap-4">
-          <Button text="Login" type="primary" />
-          <Button text="Register" type="secondary" />
+          <Button text="Login" type="primary" task="hyperlink" href="/login" />
+          <Button text="Register" type="secondary" task="hyperlink" href="/register" />
         </div>
       </div>
     );
