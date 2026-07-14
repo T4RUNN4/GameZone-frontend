@@ -3,13 +3,13 @@ import Link from "next/link";
 type ButtonProps =
   | {
       text: string;
-      type: "primary" | "secondary";
+      type: "primary" | "secondary" | "success" | "error";
       task: "hyperlink";
       href: string;
     }
   | {
       text: string;
-      type: "primary" | "secondary";
+      type: "primary" | "secondary" | "success" | "error";
       task?: "button";
       onClick?: () => void;
     };
@@ -21,7 +21,11 @@ export default function Button(props: ButtonProps) {
   const typeClasses =
     props.type === "primary"
       ? "bg-linear-to-r from-[#1f6eae] to-[#4acff0] text-white"
-      : "bg-gray-300 hover:bg-gray-400 text-gray-800";
+      : props.type === "secondary"
+      ? "bg-gray-500 text-white"
+      : props.type === "success"
+      ? "bg-green-500 text-white"
+      : "bg-red-500 text-white";
 
   if (props.task === "hyperlink") {
     return (

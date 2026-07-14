@@ -5,7 +5,7 @@ interface TableDataProps {
   status: string;
 }
 
-export default function TableData({
+export default function UserTableData({
   date,
   startTime,
   endTime,

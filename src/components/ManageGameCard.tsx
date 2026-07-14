@@ -35,8 +35,8 @@ export default function ManageGamesCard({ title, imageUrl, category, description
           </div>
         </div>
         <div className="flex gap-4 justify-self-end">
-            <Button text="Edit" type="primary" task="button" />
-            <Button text="Delete" type="secondary" task="button" />
+            <Button text="Edit" type="secondary" task="button" />
+            <Button text="Delete" type="error" task="button" />
         </div>
       </div>
     );
