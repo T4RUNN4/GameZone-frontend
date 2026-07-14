@@ -3,7 +3,7 @@ import SectionContainer from "@/components/SectionContainer";
 
 export default function Games() {
     return (
-      <SectionContainer title="Available Games" subtitle="Explore the list of games thats available in our shop so that you can  ensure that your game is available for you to play." >
+      <SectionContainer title="Available Games" subtitle="Explore the list of games thats you can play in our shop for hourly basis with friends and family" >
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <GamesCard

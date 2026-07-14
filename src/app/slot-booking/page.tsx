@@ -1,4 +1,5 @@
 import Button from "@/components/Buttons";
+import InputFieldLabel from "@/components/InputFieldLabel";
 import SectionContainer from "@/components/SectionContainer";
 
 export default function SlotBooking() {
@@ -12,19 +13,19 @@ export default function SlotBooking() {
           <p className="text-center text-2xl font-bold mb-4">Booking Date</p>
 
           <div className="flex flex-col gap-2 mb-6">
-            <label className="text-xl font-bold">Preffered Date</label>
+            <InputFieldLabel text="Preffered Date" required/>
             <input type="date" className="input text-black w-full" />
           </div>
 
           <p className="text-center text-2xl font-bold mb-4">Booking Time</p>
 
           <div className="flex flex-col gap-2 mb-6">
-            <label className="text-xl font-bold">Start Time</label>
+            <InputFieldLabel text="Start Time" required/>
             <input type="time" className="input text-black w-full" />
           </div>
 
           <div className="flex flex-col gap-2 mb-6">
-            <label className="text-xl font-bold">End Time</label>
+            <InputFieldLabel text="End Time" required/>
             <input type="time" className="input text-black w-full" />
           </div>
 
