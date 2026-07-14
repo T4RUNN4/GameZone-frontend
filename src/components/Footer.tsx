@@ -1,4 +1,4 @@
-import { Envelope, Handset, LogoFacebook } from '@gravity-ui/icons';
+import { Envelope, Handset, LogoFacebook, MapPin } from '@gravity-ui/icons';
 import NavLinkContainer from "./NavLinkContainer";
 
 export default function Footer() {
@@ -7,6 +7,7 @@ export default function Footer() {
     <NavLinkContainer isMobile={false} />
       <nav>
         <div className="flex items-center justify-center gap-6">
+            <p className="flex items-center gap-2"><MapPin />Chawkbazar, Chattogram, Bangladesh</p>
             <p className="flex items-center gap-2"><LogoFacebook />/@gamezone</p>
             <p className="flex items-center gap-2"><Handset />+880 1817-320099</p>
             <p className="flex items-center gap-2"><Envelope />info@gamezone.com</p>
