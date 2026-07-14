@@ -21,7 +21,7 @@ export default function GamesCard({ id, title, category, description, imageUrl, 
           <span className="text-2xl text-blue-500">${hourlyRate.toFixed(2)}</span> / hr
         </p>
         <div className="mt-6">
-          <Button text="Book Now" type="primary" task="hyperlink" href={`/slot-booking/${id}`} />
+          <Button text="View Details" type="primary" task="hyperlink" href={`/games/${id}`} />
         </div>
       </div>
     );
