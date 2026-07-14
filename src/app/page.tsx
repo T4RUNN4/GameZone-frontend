@@ -1,5 +1,9 @@
+import WhyChooseUS from "@/components/WhyChooseUS";
+
 export default function Home() {
   return (
-    <div>Hello World!</div>
+    <>
+      <WhyChooseUS />
+    </>
   );
 }
