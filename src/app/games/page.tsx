@@ -1,14 +1,11 @@
 import GamesCard from "@/components/GamesCard";
-import PageHeading from "@/components/PageHeading";
-import PageSubHeading from "@/components/PageSubHeading";
+import SectionContainer from "@/components/SectionContainer";
 
 export default function Games() {
     return (
-      <div className="py-30">
-        <PageHeading text="Available Games" />
-        <PageSubHeading text="Explore the list of games thats available in our shop so that you can  ensure that your game is available for you to play." />
+      <SectionContainer title="Available Games" subtitle="Explore the list of games thats available in our shop so that you can  ensure that your game is available for you to play." >
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-18">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <GamesCard
             title="EA FC 26"
             description="EA SPORTS FC 26 is a premier football simulation video game featuring over 20,000 authentic players, 750+ clubs, and 120+ stadiums."
@@ -34,6 +31,6 @@ export default function Games() {
             hourlyRate={25.0}
           />
         </div>
-      </div>
+      </SectionContainer>
     );
 }

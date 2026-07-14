@@ -42,6 +42,12 @@ export default function Navbar() {
               <li>
                 <Link href="/manage-games">Manage Games</Link>
               </li>
+              <li>
+                <Link href="/your-bookings">Your Bookings</Link>
+              </li>
+              <li>
+                <Link href="/manage-bookings">Manage Bookings</Link>
+              </li>
             </ul>
           </div>
           <Link
@@ -67,6 +73,12 @@ export default function Navbar() {
             </li>
             <li>
               <Link href="/manage-games">Manage Games</Link>
+            </li>
+            <li>
+              <Link href="/your-bookings">Your Bookings</Link>
+            </li>
+            <li>
+              <Link href="/manage-bookings">Manage Bookings</Link>
             </li>
           </ul>
         </div>
