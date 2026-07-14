@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Button from "./Buttons";
 
 interface GamesCardProps {
+    id: number;
     title: string;
     category: string;
     description: string;
@@ -8,7 +10,7 @@ interface GamesCardProps {
     hourlyRate: number;
 }
 
-export default function GamesCard({ title, category, description, imageUrl, hourlyRate }: GamesCardProps) {
+export default function GamesCard({ id, title, category, description, imageUrl, hourlyRate }: GamesCardProps) {
     return (
       <div className="p-4 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
         <Image height={500} width={500} src={imageUrl} alt={title} />
@@ -18,6 +20,9 @@ export default function GamesCard({ title, category, description, imageUrl, hour
         <p className="mt-8 font-semibold">
           <span className="text-2xl text-blue-500">${hourlyRate.toFixed(2)}</span> / hr
         </p>
+        <div className="mt-6">
+          <Button text="Book Now" type="primary" task="hyperlink" href={`/slot-booking/${id}`} />
+        </div>
       </div>
     );
 }

@@ -22,10 +22,10 @@ export default function ManageGamesCard({ title, imageUrl, category, description
               className="rounded-lg"
             />
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col">
             <h3 className="font-bold text-3xl">{title}</h3>
             <p className="text-lg font-semibold text-blue-500">{category}</p>
-            <p className="my-2 text-xs text-justify">{description}</p>
+            <p className="my-4 text-xs text-justify">{description}</p>
             <p className="font-semibold">
               <span className="text-2xl text-blue-500">
                 ${hourlyRate.toFixed(2)}
