@@ -1,0 +1,39 @@
+import ManageGamesCard from "@/components/ManageGameCard";
+import SectionContainer from "@/components/SectionContainer";
+
+export default function ManageGames() {
+    return (
+        <SectionContainer title="Manage Games" subtitle="Edit or delete the games of the shops" >
+            <div className="flex flex-col gap-4">
+                <ManageGamesCard
+                            title="EA FC 26"
+                            category="Football"
+                            description="EA SPORTS FC 26 is a premier football simulation video game featuring over 20,000 authentic players, 750+ clubs, and 120+ stadiums."
+                            imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWKxANvsGXXFA-NTnHRAKaXjd38qcfWUBU-05QAYkwcDzFsyAz6uG0S-7w&s=10"
+                            hourlyRate={10.0}
+                          />
+                          <ManageGamesCard
+                            title="WWE 2k26"
+                            category="Wrestling"
+                            description="WWE 2K26 is a professional wrestling sports game developed by Visual Concepts and published by 2K"
+                            imageUrl="https://store-images.s-microsoft.com/image/apps.49935.14245693243511042.09f19d31-3dab-4c77-8362-732a985c0400.e7a61b76-e9e7-4b84-a7e5-033365ed3488"
+                            hourlyRate={15.0}
+                          />
+                          <ManageGamesCard
+                            title="Asphalt 8"
+                            category="Racing"
+                            description="Asphalt 8 is a popular racing game features over 300 licensed cars and motorcycles, and 75+ global tracks with dramatic gravity-defying stunts."
+                            imageUrl="https://m.media-amazon.com/images/M/MV5BYjBmYWU2NzktOTdmYy00MWFkLTkyNmItM2M0NGNkMmY0OGYwXkEyXkFqcGc@._V1_.jpg"
+                            hourlyRate={20.0}
+                          />
+                          <ManageGamesCard
+                            title="Cricket 26"
+                            category="Cricket"
+                            description="Cricket 26 - The Official Game of the Ashes is a cricket simulation game by Big Ant Studios and Nacon"
+                            imageUrl="https://store-images.s-microsoft.com/image/apps.62783.14013085416782408.0c71a501-7c8e-46be-8973-1b2bba50d4d8.a117c9e0-ccac-4d22-9fc8-789b79efcfc9"
+                            hourlyRate={25.0}
+                          />
+            </div>
+        </SectionContainer>
+    )
+}
