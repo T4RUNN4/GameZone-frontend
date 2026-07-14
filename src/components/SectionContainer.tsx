@@ -13,7 +13,7 @@ export default function SectionContainer({
   children,
 }: SectionContainerProps) {
   return (
-    <div className="py-30">
+    <div className="p-30">
       <PageHeading text={title} />
       <PageSubHeading text={subtitle} />
       <div className="mt-18">{children}</div>
