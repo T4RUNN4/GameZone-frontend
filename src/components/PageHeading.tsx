@@ -3,5 +3,5 @@ interface HeadingProps {
 }
 
 export default function PageHeading({ text }: HeadingProps) {
-    return <h1 className="text-3xl font-bold mb-4">{text}</h1>
+    return <h1 className="text-center text-6xl font-bold mb-4">{text}</h1>
 }
