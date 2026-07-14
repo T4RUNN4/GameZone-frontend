@@ -9,32 +9,22 @@ export default function SlotBooking() {
     >
       <div className="flex mx-auto max-w-5xl items-center justify-center">
         <form className="w-full rounded-box border border-gray-600 p-8">
-            
-          <div className="flex flex-col gap-2 mb-6">
-            <label className="text-xl font-bold">Full Name</label>
-            <input
-              type="text"
-              className="input text-black w-full"
-              placeholder="John Doe"
-            />
-          </div>
+          <p className="text-center text-2xl font-bold mb-4">Booking Date</p>
 
           <div className="flex flex-col gap-2 mb-6">
-            <label className="text-xl font-bold">Contact Number</label>
-            <input
-              type="text"
-              className="input text-black w-full"
-              placeholder="+880-1817-320099"
-            />
-          </div>
-
-          <div className="flex flex-col gap-2 mb-6">
-            <label className="text-xl font-bold">Booking Date</label>
+            <label className="text-xl font-bold">Preffered Date</label>
             <input type="date" className="input text-black w-full" />
           </div>
 
+          <p className="text-center text-2xl font-bold mb-4">Booking Time</p>
+
           <div className="flex flex-col gap-2 mb-6">
-            <label className="text-xl font-bold">Booking Time</label>
+            <label className="text-xl font-bold">Start Time</label>
+            <input type="time" className="input text-black w-full" />
+          </div>
+
+          <div className="flex flex-col gap-2 mb-6">
+            <label className="text-xl font-bold">End Time</label>
             <input type="time" className="input text-black w-full" />
           </div>
 
