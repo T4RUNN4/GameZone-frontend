@@ -24,6 +24,7 @@ export default function RootLayout({
       lang="en"
       data-theme="light"
       className={`${poppins.className} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-linear-to-r from-[#132742] to-[#284668] text-white">
         <Navbar />
