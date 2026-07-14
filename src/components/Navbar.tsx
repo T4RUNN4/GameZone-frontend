@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Button from "./Buttons";
+import NavLink from "./NavLink";
+import NavLinkContainer from "./NavLinkContainer";
 
 export default function Navbar() {
     return (
@@ -23,32 +25,7 @@ export default function Navbar() {
                 />{" "}
               </svg>
             </div>
-            <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/games">Games</Link>
-              </li>
-              <li>
-                <Link href="/slot-booking">Slot Book</Link>
-              </li>
-              <li>
-                <Link href="/add-games">Add Games</Link>
-              </li>
-              <li>
-                <Link href="/manage-games">Manage Games</Link>
-              </li>
-              <li>
-                <Link href="/your-bookings">Your Bookings</Link>
-              </li>
-              <li>
-                <Link href="/manage-bookings">Manage Bookings</Link>
-              </li>
-            </ul>
+            <NavLinkContainer isMobile={true} />
           </div>
           <Link
             href="/"
@@ -58,29 +35,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/games">Games</Link>
-            </li>
-            <li>
-              <Link href="/slot-booking">Slot Book</Link>
-            </li>
-            <li>
-              <Link href="/add-games">Add Games</Link>
-            </li>
-            <li>
-              <Link href="/manage-games">Manage Games</Link>
-            </li>
-            <li>
-              <Link href="/your-bookings">Your Bookings</Link>
-            </li>
-            <li>
-              <Link href="/manage-bookings">Manage Bookings</Link>
-            </li>
-          </ul>
+          <NavLinkContainer isMobile={false} />
         </div>
         <div className="navbar-end flex gap-4">
           <Button text="Login" type="primary" task="hyperlink" href="/login" />
