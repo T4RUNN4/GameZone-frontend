@@ -37,12 +37,13 @@ export default function AddGames() {
     }) ;
     const result = await response.json();
 
-    if(result.ok === "true") {
+    if (result.acknowledged) {
       toast.success("New Game Added");
       reset();
       router.push("/games");
     } else {
-      toast.error("Something Went Wrong. Please Try Again");
+      toast.error("Something Went Wrong");
+      console.log(result);
     }
     
   };
@@ -68,6 +69,21 @@ export default function AddGames() {
             {errors.gameName && (
               <span className="text-sm text-red-500 font-medium">
                 {errors.gameName.message}
+              </span>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-2 mb-6">
+            <InputFieldLabel text="Game Category" required />
+            <input
+              type="text"
+              className="input text-black w-full"
+              placeholder="Wrestling"
+              {...register("gameCategory", { required: "Game Category is required" })}
+            />
+            {errors.gameCategory && (
+              <span className="text-sm text-red-500 font-medium">
+                {errors.gameCategory.message}
               </span>
             )}
           </div>
