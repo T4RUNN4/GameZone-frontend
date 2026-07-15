@@ -2,7 +2,7 @@ import Image from "next/image";
 import Button from "./Buttons";
 
 interface GamesCardProps {
-    id: number;
+    id: string;
     title: string;
     category: string;
     description: string;
@@ -18,7 +18,7 @@ export default function GamesCard(props: GamesCardProps) {
         <p className="text-lg font-semibold text-blue-500">{props.category}</p>
         <p className="mt-4 text-xs text-justify">{props.description}</p>
         <p className="mt-8 font-semibold">
-          <span className="text-2xl text-blue-500">${props.hourlyRate.toFixed(2)}</span> / hr
+          <span className="text-2xl text-blue-500">{props.hourlyRate}</span> / hr
         </p>
         <div className="mt-6">
           <Button text="View Details" type="primary" task="hyperlink" href={`/games/${props.id}`} />

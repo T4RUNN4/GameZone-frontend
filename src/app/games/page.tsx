@@ -1,8 +1,9 @@
-"use client";
+// "use client";
 
 import GamesCard from "@/components/GamesCard";
 import SectionContainer from "@/components/SectionContainer";
-import { useEffect, useState } from "react";
+import { fetchGames } from "@/lib/fetchGames";
+// import { useEffect, useState } from "react";
 
 interface Game {
   _id: string;
@@ -14,24 +15,10 @@ interface Game {
   hourlyRate: number;
 }
 
-export default function Games() {
-  const [loading, setLoading] = useState(true);
-  const [games, setGames] = useState<Game[]>([]);
+export default async function Games() {
+  const games = await fetchGames();
 
-  useEffect(() => {
-    const fetchGames = async () => {
-      setLoading(true);
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/games`);
-      const gameList = await res.json();
-
-      setGames(gameList);
-      setLoading(false);
-    }
-
-    fetchGames();
-  }, [setGames, setLoading])
-
-  if(loading) {
+  if(games.length === 0) {
     return (
       <div className="flex items-center justify-center">
         <span className="loading loading-spinner loading-md"></span>
@@ -48,12 +35,12 @@ export default function Games() {
         {games.map((game) => (
           <GamesCard
             key={game._id}
-            id={Number(game._id)}
+            id={game._id}
             title={game.gameName}
             category={game.gameCategory}
             description={game.gameShortDescription}
             imageUrl={game.gameImageURL}
-            hourlyRate={Number(game.hourlyRate)}
+            hourlyRate={game.hourlyRate}
           />
         ))}
       </div>
