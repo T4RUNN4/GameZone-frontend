@@ -21,12 +21,17 @@ export default function AddGames() {
           </div>
 
           <div className="flex flex-col gap-2 mb-6">
-            <InputFieldLabel text="Game Description" required/>
+            <InputFieldLabel text="Short Description" required/>
             <input
               type="text"
               className="input text-black w-full"
               placeholder="Enter game description"
             />
+          </div>
+
+          <div className="flex flex-col gap-2 mb-6">
+            <InputFieldLabel text="Detailed Description" required/>
+            <textarea placeholder="Enter detailed description of the game" className="textarea text-black w-full" />
           </div>
 
           <div className="flex flex-col gap-2 mb-6">
