@@ -5,28 +5,23 @@ interface TableDataProps {
   status: string;
 }
 
-export default function UserTableData({
-  date,
-  startTime,
-  endTime,
-  status,
-}: TableDataProps) {
+export default function UserTableData(props: TableDataProps) {
   return (
     <tr>
-      <td className="border border-gray-600">{date}</td>
-      <td className="border border-gray-600">{startTime}</td>
-      <td className="border border-gray-600">{endTime}</td>
+      <td className="border border-gray-600">{props.date}</td>
+      <td className="border border-gray-600">{props.startTime}</td>
+      <td className="border border-gray-600">{props.endTime}</td>
       <td className="border border-gray-600">
         <span
           className={`badge ${
-            status === "Confirmed"
+            props.status === "Confirmed"
               ? "badge-success"
-              : status === "Pending"
+              : props.status === "Pending"
                 ? "badge-warning"
                 : "badge-error"
           }`}
         >
-          {status}
+          {props.status}
         </span>
       </td>
     </tr>

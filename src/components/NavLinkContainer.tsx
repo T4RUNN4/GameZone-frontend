@@ -4,11 +4,11 @@ interface NavLinkProps {
   isMobile: boolean;
 }
 
-export default function NavLinkContainer({ isMobile }: NavLinkProps) {
+export default function NavLinkContainer(props: NavLinkProps) {
   return (
     <ul
-      tabIndex={isMobile ? -1 : undefined}
-      className={`${isMobile ? "menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow" : "menu menu-horizontal px-1"}`}
+      tabIndex={props.isMobile ? -1 : undefined}
+      className={`${props.isMobile ? "menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow" : "menu menu-horizontal px-1"}`}
     >
       <NavLink link="/" text="Home" />
       <NavLink link="/games" text="Games" />

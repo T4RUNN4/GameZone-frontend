@@ -7,16 +7,12 @@ interface SectionContainerProps {
   children: React.ReactNode;
 }
 
-export default function SectionContainer({
-  title,
-  subtitle,
-  children,
-}: SectionContainerProps) {
+export default function SectionContainer(props: SectionContainerProps) {
   return (
     <div className="p-30">
-      <PageHeading text={title} />
-      <PageSubHeading text={subtitle} />
-      <div className="mt-18">{children}</div>
+      <PageHeading text={props.title} />
+      <PageSubHeading text={props.subtitle} />
+      <div className="mt-18">{props.children}</div>
     </div>
   );
 }

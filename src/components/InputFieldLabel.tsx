@@ -3,10 +3,10 @@ interface InputFieldLabelProps {
     required?: boolean;
 }
 
-export default function InputFieldLabel({ text, required }: InputFieldLabelProps) {
+export default function InputFieldLabel(props: InputFieldLabelProps) {
     return (
         <label className="text-xl font-bold">
-            {text} {required && <span className="text-red-500 font-normal">*</span>}
+            {props.text} {props.required && <span className="text-red-500 font-normal">*</span>}
         </label>
     )
 }

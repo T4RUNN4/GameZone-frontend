@@ -9,7 +9,7 @@ interface ManageGamesCardProps {
     hourlyRate: number;
 }
 
-export default function ManageGamesCard({ title, imageUrl, category, description, hourlyRate }: ManageGamesCardProps) {
+export default function ManageGamesCard(props: ManageGamesCardProps) {
     return (
       <div className="flex gap-4 items-center justify-between shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 py-4 px-8">
         <div className="flex gap-4 items-center">
@@ -17,18 +17,18 @@ export default function ManageGamesCard({ title, imageUrl, category, description
             <Image
               height={100}
               width={100}
-              src={imageUrl}
+              src={props.imageUrl}
               alt="Game Image"
               className="rounded-lg"
             />
           </div>
           <div className="flex flex-col">
-            <h3 className="font-bold text-3xl">{title}</h3>
-            <p className="text-lg font-semibold text-blue-500">{category}</p>
-            <p className="my-4 text-xs text-justify">{description}</p>
+            <h3 className="font-bold text-3xl">{props.title}</h3>
+            <p className="text-lg font-semibold text-blue-500">{props.category}</p>
+            <p className="my-4 text-xs text-justify">{props.description}</p>
             <p className="font-semibold">
               <span className="text-2xl text-blue-500">
-                ${hourlyRate.toFixed(2)}
+                ${props.hourlyRate.toFixed(2)}
               </span>{" "}
               / hr
             </p>
