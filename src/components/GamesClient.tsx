@@ -11,66 +11,92 @@ interface Props {
 
 export default function GamesClient({ games }: Props) {
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useState<
-    "default" | "low-high" | "high-low"
-  >("default");
+  const [category, setCategory] = useState("All");
+  const [sort, setSort] = useState<"default" | "low-high" | "high-low">(
+    "default",
+  );
+
+  // Get all unique categories
+  const categories = useMemo(() => {
+    return ["All", ...new Set(games.map((game) => game.gameCategory))];
+  }, [games]);
 
   const filteredGames = useMemo(() => {
-    let result = games.filter((game) =>
-      game.gameName.toLowerCase().includes(search.toLowerCase()) ||
-      game.gameCategory.toLowerCase().includes(search.toLowerCase())
-    );
+    let result = [...games];
 
+    // Search
+    if (search.trim()) {
+      const query = search.toLowerCase();
+
+      result = result.filter(
+        (game) =>
+          game.gameName.toLowerCase().includes(query) ||
+          game.gameCategory.toLowerCase().includes(query),
+      );
+    }
+
+    // Category
+    if (category !== "All") {
+      result = result.filter((game) => game.gameCategory === category);
+    }
+
+    // Sorting
     switch (sort) {
       case "low-high":
-        result = [...result].sort(
-          (a, b) => Number(a.hourlyRate) - Number(b.hourlyRate)
-        );
+        result.sort((a, b) => Number(a.hourlyRate) - Number(b.hourlyRate));
         break;
 
       case "high-low":
-        result = [...result].sort(
-          (a, b) => Number(b.hourlyRate) - Number(a.hourlyRate)
-        );
+        result.sort((a, b) => Number(b.hourlyRate) - Number(a.hourlyRate));
         break;
     }
 
     return result;
-  }, [games, search, sort]);
+  }, [games, search, category, sort]);
 
   return (
     <SectionContainer
       title="Available Games"
       subtitle="Explore the list of games that you can play in our shop."
     >
-      <div className="mb-8 flex flex-col items-center justify-between gap-4 md:flex-row">
+      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <input
           type="text"
           className="input w-full max-w-md text-black"
-          placeholder="Search by name or category..."
+          placeholder="Search by game name or category..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <select
-          className="select text-black"
-          value={sort}
-          onChange={(e) =>
-            setSort(
-              e.target.value as "default" | "low-high" | "high-low"
-            )
-          }
-        >
-          <option value="default">Default</option>
-          <option value="low-high">Rent: Low → High</option>
-          <option value="high-low">Rent: High → Low</option>
-        </select>
+        <div className="flex flex-col gap-4 md:flex-row">
+          <select
+            className="select text-black"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            {categories.map((cat) => (
+              <option key={cat}>{cat}</option>
+            ))}
+          </select>
+
+          <select
+            className="select text-black"
+            value={sort}
+            onChange={(e) =>
+              setSort(e.target.value as "default" | "low-high" | "high-low")
+            }
+          >
+            <option value="default">Default</option>
+            <option value="low-high">Rent: Low → High</option>
+            <option value="high-low">Rent: High → Low</option>
+          </select>
+        </div>
       </div>
 
       {filteredGames.length === 0 ? (
-        <p className="text-center text-lg">
-          No games found.
-        </p>
+        <div className="py-20 text-center">
+          <p className="text-xl font-semibold">No games found.</p>
+        </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {filteredGames.map((game) => (
