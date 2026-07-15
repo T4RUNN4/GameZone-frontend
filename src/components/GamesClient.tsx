@@ -16,7 +16,6 @@ export default function GamesClient({ games }: Props) {
     "default",
   );
 
-  // Get all unique categories
   const categories = useMemo(() => {
     return ["All", ...new Set(games.map((game) => game.gameCategory))];
   }, [games]);
@@ -24,7 +23,6 @@ export default function GamesClient({ games }: Props) {
   const filteredGames = useMemo(() => {
     let result = [...games];
 
-    // Search
     if (search.trim()) {
       const query = search.toLowerCase();
 
@@ -35,12 +33,10 @@ export default function GamesClient({ games }: Props) {
       );
     }
 
-    // Category
     if (category !== "All") {
       result = result.filter((game) => game.gameCategory === category);
     }
 
-    // Sorting
     switch (sort) {
       case "low-high":
         result.sort((a, b) => Number(a.hourlyRate) - Number(b.hourlyRate));
