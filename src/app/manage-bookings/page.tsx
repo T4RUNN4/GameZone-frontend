@@ -1,7 +1,11 @@
 import AdminTableData from "@/components/AdminTableData";
 import SectionContainer from "@/components/SectionContainer";
+import { fetchSlots } from "@/lib/fetchSlots";
+import { format, parse } from "date-fns";
 
-export default function ManageBookings() {
+export default async function ManageBookings() {
+  const slots = await fetchSlots();
+
   return (
     <SectionContainer
       title="Manage Bookings"
@@ -10,32 +14,22 @@ export default function ManageBookings() {
       <table className="table w-full">
         <thead className="bg-blue-500 text-lg font-bold text-white text-center">
           <tr>
+            <th>Id</th>
             <th>Name</th>
-            <th>Phone</th>
             <th>Date</th>
             <th>Time</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody className="text-center">
-          <AdminTableData
-            name="John Doe"
-            phone="1234567890"
-            date="15/07/2026"
-            time="05:00 - 06:00"
-          />
-          <AdminTableData
-            name="Jane Smith"
-            phone="9876543210"
-            date="16/07/2026"
-            time="06:00 - 07:00"
-          />
-          <AdminTableData
-            name="Alice Johnson"
-            phone="5555555555"
-            date="17/07/2026"
-            time="07:00 - 08:00"
-          />
+          {slots.map((slot) => (
+            <AdminTableData
+              id={slot.userId}
+              name={slot.userName}
+              date={format(slot.date, "PPP")}
+              time={`${format(parse(slot.startTime, "HH:mm", new Date()), "h:mm a")} - ${format(parse(slot.endTime, "HH:mm", new Date()), "h:mm a")}`}
+            />
+          ))}
         </tbody>
       </table>
     </SectionContainer>

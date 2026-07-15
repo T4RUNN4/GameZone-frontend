@@ -1,7 +1,50 @@
+"use client";
+
+import Button from "@/components/Buttons";
 import SectionContainer from "@/components/SectionContainer";
 import UserTableData from "@/components/UserTableData";
+import { authClient } from "@/lib/auth-client";
+import { fetchSlots } from "@/lib/fetchSlots";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+interface Slot {
+  _id: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  status: string;
+}
 
 export default function YourBookings() {
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
+
+  const router = useRouter();
+  const [slots, setSlots] = useState<Slot[]>([]);
+
+  useEffect(() => {
+    if (!user) {
+      return;
+    }
+
+    const fetchSlot = async () => {
+      const slotDetails = await fetchSlots(user?.id);
+      setSlots(slotDetails);
+    };
+
+    fetchSlot();
+  }, [user, router]);
+
+  if(slots.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-6 font-bold text-xl min-h-screen">
+        You didn't booked any slot yet. 
+        <Button text="Slot Booking" type="primary" task="hyperlink" href="/slot-booking" />
+      </div>
+    )
+  }
+
   return (
     <SectionContainer
       title="Your Bookings"
@@ -17,24 +60,14 @@ export default function YourBookings() {
           </tr>
         </thead>
         <tbody className="text-center">
-          <UserTableData
-            date="15/07/2026"
-            startTime="05:00"
-            endTime="06:00"
-            status="Rejected"
-          />
-          <UserTableData
-            date="15/07/2026"
-            startTime="05:00"
-            endTime="06:00"
-            status="Confirmed"
-          />
-          <UserTableData
-            date="15/07/2026"
-            startTime="05:00"
-            endTime="06:00"
-            status="Pending"
-          />
+          {slots.map((slot) => (
+            <UserTableData
+              date={slot.date}
+              startTime={slot.startTime}
+              endTime={slot.endTime}
+              status={slot.status}
+            />
+          ))}
         </tbody>
       </table>
     </SectionContainer>

@@ -1,3 +1,5 @@
+import { format, parse } from "date-fns";
+
 interface TableDataProps {
   date: string;
   startTime: string;
@@ -8,17 +10,21 @@ interface TableDataProps {
 export default function UserTableData(props: TableDataProps) {
   return (
     <tr>
-      <td className="border border-gray-600">{props.date}</td>
-      <td className="border border-gray-600">{props.startTime}</td>
-      <td className="border border-gray-600">{props.endTime}</td>
+      <td className="border border-gray-600">{format(props.date, "PPP")}</td>
+      <td className="border border-gray-600">
+        {format(parse(props.startTime, "HH:mm", new Date()), "h:mm a")}
+      </td>
+      <td className="border border-gray-600">
+        {format(parse(props.endTime, "HH:mm", new Date()), "h:mm a")}
+      </td>
       <td className="border border-gray-600">
         <span
-          className={`badge ${
-            props.status === "Confirmed"
+          className={`badge capitalize ${
+            props.status === "confirmed"
               ? "badge-success"
-              : props.status === "Pending"
-                ? "badge-warning"
-                : "badge-error"
+              : props.status === "rejected"
+                ? "badge-error"
+                : "badge-ghost"
           }`}
         >
           {props.status}

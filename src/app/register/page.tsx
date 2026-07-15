@@ -4,6 +4,7 @@ import Button from "@/components/Buttons";
 import InputFieldLabel from "@/components/InputFieldLabel";
 import SectionContainer from "@/components/SectionContainer";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
@@ -23,6 +24,8 @@ export default function Register() {
     formState: { errors },
   } = useForm<Inputs>();
 
+  const router = useRouter();
+
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const { error } = await authClient.signUp.email({
       ...data,
@@ -32,6 +35,7 @@ export default function Register() {
     if(!error) {
       toast.success("Welcome to the GameZone Community!");
       reset();
+      router.push("/");
     } else {
       toast.error(error.message);
     }
