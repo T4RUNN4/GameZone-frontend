@@ -24,10 +24,11 @@ export default async function ManageBookings() {
         <tbody className="text-center">
           {slots.map((slot) => (
             <AdminTableData
-              id={slot.userId}
+              id={slot._id}
               name={slot.userName}
               date={format(slot.date, "PPP")}
               time={`${format(parse(slot.startTime, "HH:mm", new Date()), "h:mm a")} - ${format(parse(slot.endTime, "HH:mm", new Date()), "h:mm a")}`}
+              status={slot.status}
             />
           ))}
         </tbody>
