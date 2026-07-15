@@ -3,6 +3,7 @@
 import Button from "@/components/Buttons";
 import InputFieldLabel from "@/components/InputFieldLabel";
 import SectionContainer from "@/components/SectionContainer";
+import { addGames } from "@/lib/addGames";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -28,22 +29,12 @@ export default function AddGames() {
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/add-games`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }) ;
-    const result = await response.json();
+    const result = await addGames(data);
 
     if (result.acknowledged) {
       toast.success("New Game Added");
       reset();
       router.push("/games");
-    } else {
-      toast.error("Something Went Wrong");
-      console.log(result);
     }
     
   };
