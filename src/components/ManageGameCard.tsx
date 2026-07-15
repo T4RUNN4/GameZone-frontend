@@ -54,7 +54,6 @@ export default function ManageGamesCard(props: ManageGamesCardProps) {
         </div>
       </div>
       <div className="flex gap-4 justify-self-end">
-        <Button text="Edit" type="secondary" task="button" />
         <Button text="Delete" type="error" task="button" onClick={handleDelete} />
       </div>
     </div>
