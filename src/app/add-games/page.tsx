@@ -26,11 +26,25 @@ export default function AddGames() {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    toast.success("New Game Added");
-    reset();
-    router.push("/games");
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/add-games`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }) ;
+    const result = await response.json();
+
+    if(result.ok === "true") {
+      toast.success("New Game Added");
+      reset();
+      router.push("/games");
+    } else {
+      toast.error("Something Went Wrong. Please Try Again");
+    }
+    
   };
 
   return (
@@ -128,8 +142,8 @@ export default function AddGames() {
           </div>
 
           <div className="flex items-center justify-center gap-4">
-            <Button text="Add Game" type="primary" task="button" />
-            <Button text="Clear" type="secondary" task="button" />
+            <Button text="Add Game" type="primary" task="button" btnType="submit" />
+            <Button text="Clear" type="secondary" onClick={() => reset()} task="button" />
           </div>
         </form>
       </div>

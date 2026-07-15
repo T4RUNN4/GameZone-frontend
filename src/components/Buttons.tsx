@@ -11,6 +11,7 @@ type ButtonProps =
       text: string;
       type: "primary" | "secondary" | "success" | "error";
       task?: "button";
+      btnType?: "submit" | "button";
       onClick?: () => void;
     };
 
@@ -41,6 +42,7 @@ export default function Button(props: ButtonProps) {
   return (
     <button
       className={`${baseClasses} ${typeClasses}`}
+      type={props.btnType ?? "button"}
       onClick={props.onClick}
     >
       {props.text}
