@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSlider from "@/components/Hero";
+import { ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -34,6 +35,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ToastContainer />
       </body>
     </html>
   );

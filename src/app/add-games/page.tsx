@@ -1,55 +1,130 @@
+"use client";
+
 import Button from "@/components/Buttons";
 import InputFieldLabel from "@/components/InputFieldLabel";
 import SectionContainer from "@/components/SectionContainer";
+import { useRouter } from "next/navigation";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { toast } from "react-toastify";
+
+type Inputs = {
+  gameName: string;
+  gameShortDescription: string;
+  gameDescription: string;
+  gameImageURL: string;
+  gameCategory: string;
+  hourlyRate: number;
+};
 
 export default function AddGames() {
+  const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    toast.success("New Game Added");
+    reset();
+    router.push("/games");
+  };
+
   return (
     <SectionContainer
       title="Add Games"
       subtitle="Add new games to the collection for customers to enjoy"
     >
       <div className="flex mx-auto max-w-5xl items-center justify-center">
-        <form className="w-full rounded-box border border-gray-600 p-8">
-            
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="w-full rounded-box border border-gray-600 p-8"
+        >
           <div className="flex flex-col gap-2 mb-6">
-            <InputFieldLabel text="Game Name" required/>
+            <InputFieldLabel text="Game Name" required />
             <input
               type="text"
               className="input text-black w-full"
               placeholder="WWE 2k26"
+              {...register("gameName", { required: "Game Name is required" })}
             />
+            {errors.gameName && (
+              <span className="text-sm text-red-500 font-medium">
+                {errors.gameName.message}
+              </span>
+            )}
           </div>
 
           <div className="flex flex-col gap-2 mb-6">
-            <InputFieldLabel text="Short Description" required/>
+            <InputFieldLabel text="Short Description" required />
             <input
               type="text"
               className="input text-black w-full"
-              placeholder="Enter game description"
+              placeholder="Enter short description"
+              {...register("gameShortDescription", {
+                required: "Game Short Description is required",
+              })}
             />
+            {errors.gameShortDescription && (
+              <span className="text-sm text-red-500 font-medium">
+                {errors.gameShortDescription.message}
+              </span>
+            )}
           </div>
 
           <div className="flex flex-col gap-2 mb-6">
-            <InputFieldLabel text="Detailed Description" required/>
-            <textarea placeholder="Enter detailed description of the game" className="textarea text-black w-full" />
+            <InputFieldLabel text="Detailed Description" required />
+            <textarea
+              placeholder="Enter detailed description of the game"
+              className="textarea text-black w-full"
+              {...register("gameDescription", {
+                required: "Game Description is required",
+              })}
+            />
+            {errors.gameDescription && (
+              <span className="text-sm text-red-500 font-medium">
+                {errors.gameDescription.message}
+              </span>
+            )}
           </div>
 
           <div className="flex flex-col gap-2 mb-6">
-            <InputFieldLabel text="Game Image URL" required/>
+            <InputFieldLabel text="Game Image URL" required />
             <input
               type="text"
               className="input text-black w-full"
               placeholder="Enter game image URL"
+              {...register("gameImageURL", {
+                required: "Game Image URL is required",
+              })}
             />
+            {errors.gameImageURL && (
+              <span className="text-sm text-red-500 font-medium">
+                {errors.gameImageURL.message}
+              </span>
+            )}
           </div>
 
           <div className="flex flex-col gap-2 mb-6">
-            <InputFieldLabel text="Hourly Rate" required/>
+            <InputFieldLabel text="Hourly Rate" required />
             <input
               type="number"
               className="input text-black w-full"
               placeholder="Enter hourly rate"
+              {...register("hourlyRate", {
+                required: "Hourly rate is required",
+                validate: (hourlyRate) =>
+                  !isNaN(Number(hourlyRate)) || "Must be a number",
+              })}
             />
+            {errors.hourlyRate && (
+              <span className="text-sm text-red-500 font-medium">
+                {errors.hourlyRate.message}
+              </span>
+            )}
           </div>
 
           <div className="flex items-center justify-center gap-4">
