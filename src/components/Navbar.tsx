@@ -5,10 +5,13 @@ import Button from "./Buttons";
 import NavLinkContainer from "./NavLinkContainer";
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
+
+  const router = useRouter();
 
     return (
       <div className="navbar shadow-sm px-30 py-4">
@@ -63,7 +66,7 @@ export default function Navbar() {
                   text="Logout"
                   type="error"
                   task="button"
-                  onClick={async () => await authClient.signOut()}
+                  onClick={async () => {await authClient.signOut(); router.refresh()}}
                 />
               </div>
             </>
