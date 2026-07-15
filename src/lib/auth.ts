@@ -15,6 +15,10 @@ export const auth = betterAuth({
         type: "string",
         input: true,
       },
+      role: {
+        type: "string",
+        input: false,
+      },
     },
   },
   emailAndPassword: {

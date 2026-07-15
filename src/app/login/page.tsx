@@ -18,7 +18,12 @@ export default function Login() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+    defaultValues: {
+      email: "user@user.com",
+      password: "admin123",
+    },
+  });
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const { error } = await authClient.signIn.email({
