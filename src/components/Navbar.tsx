@@ -14,7 +14,7 @@ export default function Navbar() {
   const router = useRouter();
 
     return (
-      <div className="navbar shadow-sm px-30 py-4">
+      <div className="navbar shadow-sm px-10 lg:px-30 py-4 z-50">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,7 +38,7 @@ export default function Navbar() {
           </div>
           <Link
             href="/"
-            className="text-3xl font-bold bg-linear-to-r from-[#1f6eae] to-[#4acff0] text-transparent bg-clip-text"
+            className="text-2xl md:text-3xl font-bold bg-linear-to-r from-[#1f6eae] to-[#4acff0] text-transparent bg-clip-text"
           >
             GameZone
           </Link>
@@ -59,9 +59,10 @@ export default function Navbar() {
                 alt={user.name}
                 height={30}
                 width={50}
+                className="hidden md:flex"
               />
               <div className="flex flex-col gap-2">
-                <p className="font-medium text-lg">{user.name}</p>
+                <p className="md:font-medium md:text-lg">{user.name}</p>
                 <Button
                   text="Logout"
                   type="error"

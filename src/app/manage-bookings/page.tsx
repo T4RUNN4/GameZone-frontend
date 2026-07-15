@@ -14,7 +14,6 @@ export default async function ManageBookings() {
       <table className="table w-full">
         <thead className="bg-blue-500 text-lg font-bold text-white text-center">
           <tr>
-            <th>Id</th>
             <th>Name</th>
             <th>Date</th>
             <th>Time</th>

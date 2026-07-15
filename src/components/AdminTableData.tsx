@@ -30,7 +30,6 @@ export default function AdminTableData(props: TableDataProps) {
 
   return (
     <tr>
-      <td className="border border-gray-600">{props.id}</td>
       <td className="border border-gray-600">{props.name}</td>
       <td className="border border-gray-600">{props.date}</td>
       <td className="border border-gray-600">{props.time}</td>

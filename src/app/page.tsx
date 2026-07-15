@@ -8,14 +8,14 @@ export default function Home() {
   return (
     <>
       <HeroSlider />
-        <div className="divider"></div>
-        <AboutUs />
-        <div className="divider"></div>
-        <WhyChooseUS />
-        <div className="divider"></div>
-        <FeaturedGames />
-        <div className="divider"></div>
-        <CustomerReview />
+      <div className="divider"></div>
+      <AboutUs />
+      <div className="divider"></div>
+      <WhyChooseUS />
+      <div className="divider"></div>
+      <FeaturedGames />
+      <div className="divider"></div>
+      <CustomerReview />
     </>
   );
 }

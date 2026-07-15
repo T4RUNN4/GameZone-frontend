@@ -6,7 +6,7 @@ export default function Contact() {
 
   return (
     <SectionContainer title="Contact US" subtitle="Our Coontact Info">
-      <div className="flex items-center justify-center gap-4 text-xl">
+      <div className="flex items-center justify-center gap-4 text-sm md:text-xl">
         <div className="flex flex-col gap-2">
           <p className="flex items-center gap-2">
             <MapPin height={size} width={size} />
@@ -26,9 +26,9 @@ export default function Contact() {
           </p>
         </div>
         <div className="flex flex-col gap-2">
-          <p> Chawkbazar, Chattogram, Bangladesh</p>
-          <p> https://facebook.com/gamezone</p>
-          <p> +880 1817-320099</p>
+          <p>Chawkbazar, Chattogram</p>
+          <p>facebook.com/gamezone</p>
+          <p>+880 1817-320099</p>
           <p>info@gamezone.com</p>
         </div>
       </div>

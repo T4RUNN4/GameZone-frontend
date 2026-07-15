@@ -11,7 +11,7 @@ export default function ReviewCard(props: ReviewCardProps) {
   const imageSize: number = 150;
 
   return (
-    <div className="flex items-center justify-center gap-8 border border-gray-600 p-4 rounded-md hover:scale-105 transition-transform duration-200">
+    <div className="flex flex-col md:flex-row items-center md:justify-center gap-8 border border-gray-600 p-4 rounded-md hover:scale-105 transition-transform duration-200">
       <Image
         src={props.image}
         alt={props.name}

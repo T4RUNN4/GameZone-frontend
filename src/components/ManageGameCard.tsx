@@ -30,8 +30,8 @@ export default function ManageGamesCard(props: ManageGamesCardProps) {
   }
 
   return (
-    <div className="flex gap-4 items-center justify-between shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 py-4 px-8">
-      <div className="flex gap-4 items-center">
+    <div className="md:flex gap-4 items-center justify-between shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 py-4 px-8">
+      <div className="md:flex md:flex-row gap-4 items-center">
         <div>
           <Image
             height={100}
@@ -42,7 +42,7 @@ export default function ManageGamesCard(props: ManageGamesCardProps) {
           />
         </div>
         <div className="flex flex-col">
-          <h3 className="font-bold text-3xl">{props.title}</h3>
+          <h3 className="font-bold text-xl md:text-3xl mt-4 md:mt-0">{props.title}</h3>
           <p className="text-lg font-semibold text-blue-500">
             {props.category}
           </p>
@@ -53,7 +53,7 @@ export default function ManageGamesCard(props: ManageGamesCardProps) {
           </p>
         </div>
       </div>
-      <div className="flex gap-4 justify-self-end">
+      <div className="flex gap-4 justify-self-end mt-4 md:mt-0">
         <Button text="Delete" type="error" task="button" onClick={handleDelete} />
       </div>
     </div>

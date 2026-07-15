@@ -3,11 +3,11 @@ import NavLinkContainer from "./NavLinkContainer";
 
 export default function Footer() {
   return (
-    <footer className="footer footer-horizontal footer-center px-30 py-8 border-t border-gray-700">
+    <footer className="footer footer-horizontal footer-center px-10 lg:px-30 py-8 border-t border-gray-700">
     <NavLinkContainer isMobile={false} />
       <nav>
-        <div className="flex items-center justify-center gap-6">
-            <p className="flex items-center gap-2"><MapPin />Chawkbazar, Chattogram, Bangladesh</p>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <p className="flex items-center gap-2"><MapPin />Chawkbazar, Chattogram</p>
             <p className="flex items-center gap-2"><LogoFacebook />/@gamezone</p>
             <p className="flex items-center gap-2"><Handset />+880 1817-320099</p>
             <p className="flex items-center gap-2"><Envelope />info@gamezone.com</p>

@@ -27,7 +27,7 @@ export default async function GameDetails({ params }: GameDetailsProps) {
       title="Game Details"
       subtitle="Explore the details of the selected game, including description, features, and more."
     >
-      <div className="flex flex-col items-center justify-center md:flex-row gap-16">
+      <div className="md:flex items-center justify-center md:flex-row gap-16">
         <div className="md:w-1/3">
           <Image
             src={game.gameImageURL}
@@ -44,7 +44,7 @@ export default async function GameDetails({ params }: GameDetailsProps) {
               {game.gameCategory}
             </span>
           </h4>
-          <h2 className="text-6xl font-bold mb-4">{game.gameName}</h2>
+          <h2 className="text-4xl lg:text-6xl font-bold mb-4">{game.gameName}</h2>
           <p className="text-sm">{game.gameShortDescription}</p>
           <p className="my-12 text-lg text-justify">{game.gameDescription}</p>
 

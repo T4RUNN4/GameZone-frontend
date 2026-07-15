@@ -53,9 +53,9 @@ export default function YourBookings() {
       <table className="table w-full">
         <thead className="bg-blue-500 text-lg font-bold text-white text-center">
           <tr>
-            <th>Booking Date</th>
-            <th>Start Time</th>
-            <th>End Time</th>
+            <th>Date</th>
+            <th>From</th>
+            <th>Till</th>
             <th>Status</th>
           </tr>
         </thead>
