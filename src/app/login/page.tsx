@@ -86,7 +86,7 @@ export default function Login() {
 
           <div className="flex items-center justify-center gap-4">
             <Button text="Login" type="primary" btnType="submit" task="button" />
-            <Button text="Clear" type="secondary" task="button" />
+            <Button text="Clear" type="secondary" task="button" onClick={() => reset()} />
           </div>
         </form>
       </div>
