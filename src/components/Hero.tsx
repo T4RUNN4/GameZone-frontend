@@ -13,20 +13,20 @@ const slides = [
     image:
       "https://image.benq.com/is/image/benqco/Gamingroom_tk700sti-A?$ResponsivePreset$",
     title: "Bored at Home?",
-    subtitle: "Are you bored at home with nothing to do",
+    subtitle: "Are you completely bored at home with absoulutely nothing to do?",
   },
   {
     id: 2,
     image:
       "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1600",
-    title: "Do you wanna play PlayStation?",
-    subtitle: "But you can't play because you don't have one",
+    title: "Wanna play PlayStation?",
+    subtitle: "Do you want to play playstation but can't because you don't own one?",
   },
   {
     id: 3,
     image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600",
     title: "Well, GameZone is Here",
-    subtitle: "Grab your buddies and play in GameZone with PlayStation",
+    subtitle: "Gather your Gaming Partner, Come to our shop and Play games like FC26",
   },
 ];
 
@@ -39,11 +39,11 @@ export default function HeroSlider() {
         disableOnInteraction: false,
       }}
       loop
-      className="w-full h-137.5"
+      className="w-full min-h-screen"
     >
       {slides.map((slide) => (
         <SwiperSlide key={slide.id}>
-          <div className="relative h-137.5 w-full">
+          <div className="relative min-h-screen w-full">
             <Image
               src={slide.image}
               alt={slide.title}
