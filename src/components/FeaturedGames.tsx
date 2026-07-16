@@ -37,6 +37,7 @@ export default function FeaturedGames() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {games.map((game) => (
             <GamesCard
+              key={game.id}
               id={game.id}
               title={game.title}
               category={game.category}

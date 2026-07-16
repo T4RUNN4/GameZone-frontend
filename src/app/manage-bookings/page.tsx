@@ -23,6 +23,7 @@ export default async function ManageBookings() {
         <tbody className="text-center">
           {slots.map((slot) => (
             <AdminTableData
+              key={slot._id}
               id={slot._id}
               name={slot.userName}
               date={format(slot.date, "PPP")}
