@@ -1,5 +1,5 @@
 import SectionContainer from "@/components/SectionContainer";
-import { fetchGames } from "@/lib/fetchGames";
+import { fetchGame } from "@/lib/fetchGames";
 import Image from "next/image";
 
 interface GameDetailsProps {
@@ -10,15 +10,7 @@ interface GameDetailsProps {
 
 export default async function GameDetails({ params }: GameDetailsProps) {
   const { id } = await params;
-  const game = await fetchGames(id);
-
-  if (game.length === 0) {
-    return (
-      <div className="flex items-center justify-center">
-        <span className="loading loading-spinner loading-md"></span>
-      </div>
-    );
-  }
+  const game = await fetchGame(id);
 
   const imageSize: number = 500;
 

@@ -8,9 +8,13 @@ export interface Game {
   hourlyRate: number;
 }
 
-export async function fetchGames(id?: string): Promise<Game[]> {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/games/${id ? id : ""}`,
-  );
+export async function fetchGames(): Promise<Game[]> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/games`);
+  return res.json();
+}
+
+export async function fetchGame(id: string): Promise<Game> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/games/${id}`);
+
   return res.json();
 }
