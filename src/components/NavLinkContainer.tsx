@@ -6,9 +6,22 @@ interface NavLinkProps {
   isMobile: boolean;
 }
 
+interface SessionUser {
+  id: string;
+  name: string;
+  email: string;
+  image?: string | null;
+  emailVerified: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+
+  contactNumber: string;
+  role: "admin" | "customer";
+}
+
 export default function NavLinkContainer(props: NavLinkProps) {
   const { data: session, isPending } = useSession();
-  const user = session?.user;
+  const user = session?.user as SessionUser;
 
   return (
     <ul
