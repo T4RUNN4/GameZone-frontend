@@ -4,7 +4,7 @@ import SectionContainer from "./SectionContainer"
 export default function FeaturedGames() {
     const games = [
       {
-        id: 1,
+        id: "1a",
         title: "EA SPORTS FC 26",
         category: "Football",
         description:
@@ -16,7 +16,7 @@ export default function FeaturedGames() {
         hourlyRate: 10.0,
       },
       {
-        id: 3,
+        id: "3c",
         title: "GTA V",
         category: "Action",
         description:
