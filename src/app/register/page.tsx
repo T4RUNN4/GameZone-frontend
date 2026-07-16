@@ -14,6 +14,7 @@ type Inputs = {
   image: string;
   email: string;
   password: string;
+  role: string;
 };
 
 export default function Register() {
